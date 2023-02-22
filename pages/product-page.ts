@@ -25,8 +25,12 @@ export class ProductPage{
         this.wishList = page.locator("a[data-auto-id='wishlist-button-desktop']");
     }
 
-    async addItemToWishList(){
+    async selectFirstAvailableSize(){
+        await this.firstSize.waitFor();
         await this.firstSize.click();
+    }
+
+    async addItemToWishList(){
         await this.addWishList.click();
     }
 

@@ -17,11 +17,12 @@ export class HomePage {
 
     async scrollTendencias(){
         await this.titleTendencias.scrollIntoViewIfNeeded();
+        await this.carouselStanSmith.hover();
     }
 
     async selectionTendencias(){
-        await this.carouselStanSmith.hover();
         await this.carouselStanSmith.click();
+        await this.page.waitForLoadState();
     }
 
 }
