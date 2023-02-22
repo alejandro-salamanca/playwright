@@ -1,7 +1,7 @@
-import { WishListPage } from './../pom/wishlist-page';
-import { ResultsPage } from './../pom/results-page';
-import { HomePage } from '../pom/home-page';
-import { ProductPage } from '../pom/product-page';
+import { WishListPage } from '../pages/wishlist-page';
+import { ResultsPage } from '../pages/results-page';
+import { HomePage } from '../pages/home-page';
+import { ProductPage } from '../pages/product-page';
 import { test, expect } from "@playwright/test";
 
 
