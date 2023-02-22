@@ -2,8 +2,6 @@ import { Locator, Page } from "@playwright/test";
 
 export class ProductPage{
     readonly page: Page;
-    readonly email: string;
-    readonly password: string;
     readonly firstSize: Locator;
     readonly addWishList: Locator;
     readonly inputEmail: Locator;
@@ -16,8 +14,6 @@ export class ProductPage{
     
     constructor(page: Page){
         this.page = page;
-        this.email = "alejandro_sgar@hotmail.com";
-        this.password = "Adidas2023+"
         this.firstSize = page.locator("button[class='gl-label size___2lbev']").nth(0);
         this.addWishList = page.locator("div[data-testid='add-wishlist-container']");
         this.inputEmail = page.locator("input[aria-label='Correo electrónico']");
@@ -34,12 +30,12 @@ export class ProductPage{
         await this.addWishList.click();
     }
 
-    async login(){
+    async login(email: string, password: string){
         await this.inputEmail.click();
-        await this.page.keyboard.type(this.email);
+        await this.page.keyboard.type(email);
         await this.continuar.waitFor();
         await this.continuar.click();
-        await this.inputPassword.type(this.password);
+        await this.inputPassword.type(password);
         await this.iniciarSesion.click();
     }
 

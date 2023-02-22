@@ -3,9 +3,10 @@ import { ResultsPage } from '../pages/results-page';
 import { HomePage } from '../pages/home-page';
 import { ProductPage } from '../pages/product-page';
 import { test, expect } from "@playwright/test";
+import { loginData } from '../data/login-data';
 
 
-test('Select item and add to wish list', async ({ page}) => {
+test('Select item and add to wish list', async ({page}) => {
     const homePage = new HomePage(page);
     const resultsPage = new ResultsPage(page);
     const productPage = new ProductPage(page);
@@ -17,7 +18,7 @@ test('Select item and add to wish list', async ({ page}) => {
     await resultsPage.closePopUp();
     await resultsPage.selectFirstProduct();
     await productPage.addItemToWishList();
-    await productPage.login();
+    await productPage.login(loginData.email,loginData.password);
     await productPage.closePanelAccount();
     await productPage.clickWishList();
 
